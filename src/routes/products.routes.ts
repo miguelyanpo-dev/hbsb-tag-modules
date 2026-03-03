@@ -321,7 +321,9 @@ router.openapi(
     method: 'get',
     path: '/products_names',
     request: {
-      query: RefQuerySchema,
+      query: z.object({
+        ref: z.string().optional(),
+      }),
     },
     responses: {
       200: {
