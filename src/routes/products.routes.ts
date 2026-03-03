@@ -9,6 +9,7 @@ import { getProductsNames } from '../controllers/products/get_products_names';
 import {
   CreateProductsSchema,
   GetProductsQuerySchema,
+  GetProductsNamesQuerySchema,
   PaginatedProductsResponseSchema,
   UpdateProductsSchema,
 
@@ -321,9 +322,7 @@ router.openapi(
     method: 'get',
     path: '/products_names',
     request: {
-      query: z.object({
-        ref: z.string().optional(),
-      }),
+      query: GetProductsNamesQuerySchema,
     },
     responses: {
       200: {

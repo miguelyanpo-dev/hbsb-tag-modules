@@ -59,6 +59,10 @@ export const GetProductsQuerySchema = z.object({
   date_end: z.string().optional(), 
 });
 
+export const GetProductsNamesQuerySchema = z.object({
+  ref: z.string().min(1, 'ref is required'),
+});
+
 /**
  * ============================
  * RESPONSE
