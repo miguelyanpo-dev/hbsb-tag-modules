@@ -4,6 +4,7 @@ import { swaggerUI } from '@hono/swagger-ui';
 import { OpenAPIHono } from '@hono/zod-openapi';
 import { logger } from './middlewares/logger';
 import { config } from './config/config';
+import { registerTagModulesRoutes } from './routes/tag-modules.routes';
 
 const app = new Hono();
 const apiV1 = new OpenAPIHono();
@@ -41,6 +42,8 @@ apiV1.doc('/openapi.json', {
 });
 
 apiV1.get('/doc', swaggerUI({ url: '/api/v1/openapi.json' }));
+
+registerTagModulesRoutes(apiV1);
 
 app.route('/api/v1', apiV1);
 
